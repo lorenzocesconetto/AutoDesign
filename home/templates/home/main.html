@@ -1,0 +1,66 @@
+{% extends "home/base.html" %}
+
+{% load static %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="navbar-brand">AutoProject</div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="">Home<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <div>
+            <a href="{% url 'logout' %}" class="btn btn-outline-warning my-2 my-sm-0">Log out</a>
+        </div>
+    </div>
+</nav>
+
+<div class="card-deck mx-3 my-2">
+
+    <a href="{% url 'sapata' %}">
+        <div class="card bg-primary text-white">
+            <img src="{% static 'home/sapata.jpg' %}" class="card-img-top" alt="Pojeto de Sapata">
+            <div class="card-body">
+                <h5 class="card-title">Sapata</h5>
+                <p class="card-text">Criar projeto de fundação direta com detalhamento de armaduras.</p>
+            </div>
+            <!--<div class="card-footer">-->
+            <!--<small class="text-muted">Usuário Premium</small>-->
+            <!--</div>-->
+        </div>
+    </a>
+
+    <div class="card bg-secondary text-white">
+        <img src="{% static 'home/viga.jpg' %}" class="card-img-top" alt="Projeto de viga">
+        <div class="card-body">
+            <h5 class="card-title">Viga</h5>
+            <p class="card-text">Criar projeto de viga com detalhamento de armaduras.</p>
+        </div>
+        <!--<div class="card-footer">-->
+        <!--<small class="text-muted">Last updated 3 mins ago</small>-->
+        <!--</div>-->
+    </div>
+
+    <div class="card bg-success text-white">
+        <img src="{% static 'home/pilar.jpg' %}" class="card-img-top" alt="Projeto de pilar">
+        <div class="card-body">
+            <h5 class="card-title">Pilar</h5>
+            <p class="card-text">Criar projeto de pilar com detalhamento de armaduras.</p>
+        </div>
+        <!--<div class="card-footer">-->
+        <!--<small class="text-muted">Last updated 3 mins ago</small>-->
+        <!--</div>-->
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+

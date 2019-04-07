@@ -1,0 +1,72 @@
+{% extends "home/base.html" %}
+
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/index_style.css' %}">
+{% endblock %}
+
+{% block title %}
+AutoProject
+{% endblock %}
+
+{% block body %}
+<section class="login-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 login-sec">
+                <h2 class="text-center">Entrar</h2>
+
+                <form class="login-form clearfix" action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="text-uppercase">Email</label>
+                        <input name="username" type="text" class="form-control" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" class="text-uppercase">Senha</label>
+                        <input name="password" type="password" class="form-control" placeholder="">
+                    </div>
+
+
+                    <div class="form-check">
+                        <button type="submit" class="btn btn-login float-right">Log in</button>
+                    </div>
+
+                </form>
+
+                {% if fail_message %}
+                <div class="alert alert-danger mt-2" role="alert">{{ fail_message }}</div>
+                {% endif %}
+
+                {% if success_message %}
+                <div class="alert alert-success mt-2" role="alert">{{ success_message }}</div>
+                {% endif %}
+
+                <div class="copy-text">Criado com <i class="fa fa-heart"></i> por engenheiros brasileiros.</div>
+            </div>
+
+
+            <div class="col-md-8 banner-sec">
+                <div class="banner-text">
+                    <h2 style="color: #565e66;">Paixão por projetar</h2>
+                    <p style="color: #565e66;">Enquanto o engenheiro se preocupa com os aspectos mais importantes do seu projeto,
+                        o AutoProject cuida da parte chata.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--<footer class="footer bg-dark">-->
+<!--<div class="text-center mt-3 pb-3">-->
+<!--<span style="color: #AAAAAA; height: 5vh;">Todos os direitos reservados AutoProject 2019.</span>-->
+<!--</div>-->
+<!--</footer>-->
+
+{% endblock %}
+
+
+

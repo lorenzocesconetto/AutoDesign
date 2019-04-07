@@ -1,0 +1,96 @@
+{% extends "home/base.html" %}
+
+{% load static %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="navbar-brand">AutoProject</div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="">Home<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+
+        <div>
+            <a href="{% url 'logout' %}" class="btn btn-outline-warning my-2 my-sm-0">Log out</a>
+        </div>
+
+    </div>
+</nav>
+
+<h2 class="ml-3 mt-3">Cálculo de Sapata</h2>
+<form action="{% url 'calculate_sapata' %}" method="post" class="col-6 ml-3 mt-3 mb-5 pb-5">
+    {% csrf_token %}
+
+    <div class="form-group">
+    <label for="exampleFormControlSelect1">Geometria da sapata</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="geometria_sapata">
+      <option value="Retangular">Retangular</option>
+      <option value="Trapezoidal">Trapezoidal</option>
+    </select>
+  </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Fck do concreto (MPa)</label>
+        <input name="fck" class="form-control" id="exampleFormControlInput1" placeholder="">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Peso especifico concreto (kN/m3)</label>
+        <input name="y_conc" class="form-control" id="exampleFormControlTextarea1">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Fyk do aco (MPa)</label>
+        <input name="fyk" class="form-control" id="exampleFormControlTextarea1">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Esforço Normal do pilar (kN)</label>
+        <input name="normal" class="form-control" id="exampleFormControlTextarea1">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Dimensão do pilar direção a (cm)</label>
+        <input name="a0" class="form-control" id="exampleFormControlTextarea1">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Dimensão do pilar direção b (cm)</label>
+        <input name="b0" class="form-control" id="exampleFormControlTextarea1">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Tensão limite do solo (kN/cm2)</label>
+        <input name="tensao_lim" class="form-control" id="exampleFormControlTextarea1">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Espaçamento da armadura (cm)</label>
+        <input name="espacamento" class="form-control" id="exampleFormControlTextarea1">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Peso especifico do solo(kN/m3)</label>
+        <input name="y_solo" class="form-control" id="exampleFormControlTextarea1">
+    </div>
+
+    <div class="form-check">
+        <button type="submit" class="btn btn-primary float-right">Calcular</button>
+    </div>
+
+</form>
+
+
+{% endblock %}
+
+
+
